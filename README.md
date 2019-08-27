@@ -13,6 +13,7 @@ Estimate of time needed to complete: 60:00
 
 Start time: 9:10
 
-Finish time: _____
+Finish time: 9:50
 
-Actual time needed to complete: _____
+Actual time needed to complete: 40:00
+
