@@ -4,11 +4,16 @@ const express = require('express');
 const superagent = require('superagent');
 
 const app = express();
-app.set('view engine', 'ejs');
-app.use(express.urlencoded({ extended: true }));
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
 
-// app.get('/', newSearch);
+app.set('view engine', 'ejs');
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('./public'));
+
+app.get('/', (req, res) => {
+    return res.render('./pages/index');
+});
 
 // app.post('/book-search', searchForBook);
 
@@ -29,5 +34,8 @@ const PORT = process.env.PORT || 3000
 //     Res.send(result.body);
 // };
 
+// function newSearch(req, res) {
+//     return res.render('/pages/index');
+// }
 
 app.listen(PORT, () => console.log(`Up and running on ${PORT}`));
