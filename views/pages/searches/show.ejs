@@ -1,29 +1,34 @@
-<ul>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
     <% for(let i = 0; i < myData.length; i++){ %>
-
-        <li>
-            <%= myData[i].title %>
-        </li>
-        <li>
-            <%= myData[i].author %>
-        </li>
-        <li>
-            <%= myData[i].description %>
-        </li>
-        <li>
-            <%= myData[i].thumbnail %>
-        </li>
-        <li>
-            <%= myData[i].pagecount %>
-        </li>
-        <li>
-            <%= myData[i].link %>
-        </li>
-        <li>
-            <%= myData[i].rating %>
-        </li>
-
+        <div id="bookView">
+            <a href="<%= myData[i].link %>">
+                <%= myData[i].title %>
+            </a>
+            <h2>
+                <%= myData[i].author %>
+            </h2>
+            <p>
+                <%= myData[i].description %>
+            </p>
+            <img src="<%= myData[i].thumbnail %>" />
+            <p>
+                <%= myData[i].pagecount %>
+            </p>
+            <p>
+                <%= myData[i].rating %>
+            </p>
+        </div>
         <% } %>
+</body>
 
-</ul>
+</html>
