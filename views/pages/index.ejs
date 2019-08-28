@@ -10,28 +10,36 @@
 </head>
 
 <body>
-    <h1>Book Search App</h1>
-    <div class="container">
-        <!-- action visits a route (url), method is the route method (get, post etc) -->
-        <form action="book-search" method="POST">
-            <!-- <fieldset> -->
-            <legend>Search by Title or Author</legend>
-            <label id="titleRadio" for="search">
-       <!-- my request.body will have a property of title as of this line -->
-       <span>Title</span>
-       <input type="radio" name="search" value="title">
-     </label>
+    <main>
+        <h1>Saved Books</h1>
+        <h4>Total Books in Database:
+            <%= results.rows.length %>
+        </h4>
 
-            <label id="authorRadio" for="search">
-       <!-- my request.body will have a property of author as of this line -->
-       <span>Author</span>
-       <input type="radio" name="search" value="author">
-     </label>
+        <% results.rows.forEach((book) => { %>
+            <div class="eachBook">
+                <h1 class="title">
+                    <%= book.title %>
+                </h1>
+                <h2 class="author">
+                    <%=book.author%>
+                </h2>
 
-            <label for="search">
-       <input  id="inputBox" type="text" name="search" placeholder="insert book name or author">
-     </label>
-            <!-- </fieldset> -->
-        </form>
-    </div>
+                <h2 class="description">
+                    <%=book.description%>
+                </h2>
+                <img src="<%=book.thumbnail%>" />
+
+            </div>
+            <div id="Hidden Menu">
+                <form action="book-save" method="POST">
+                    <input type="text" name="title" value="<%= book.title %>">
+                    <input type="text" name="author" value="<%= book.author %>">
+                    <input type="text" name="description" value="<%= book.description %>">
+                    <input type="text" name="thumbnail" value="<%= book.thumbnail %>">
+                    <input id="inputBox" type="button" text="saveBook">
+                </form>
+            </div>
+            <% }); %>
+    </main>
 </body>

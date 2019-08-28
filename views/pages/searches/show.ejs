@@ -9,11 +9,14 @@
 </head>
 
 <body>
+    <a href="/book-search">Search for books!</a>
+
+
     <% for(let i = 0; i < myData.length; i++){ %>
         <div id="bookView">
-            <a href="<%= myData[i].link %>">
+            <h1>
                 <%= myData[i].title %>
-            </a>
+            </h1>
             <h2>
                 <%= myData[i].author %>
             </h2>
@@ -28,7 +31,18 @@
                 <%= myData[i].rating %>
             </p>
         </div>
+        <div id="Hidden Menu">
+            <form action="book-save" method="POST">
+                <input type="text" name="title" value="<%= myData[i].title %>">
+                <input type="text" name="author" value="<%= myData[i].author %>">
+                <input type="text" name="description" value="<%= myData[i].description %>">
+                <input type="text" name="thumbnail" value="<%= myData[i].thumbnail %>">
+                <input id="inputBox" type="button" name="saveBook" placeholder="Save Book to Your Library">
+            </form>
+        </div>
         <% } %>
+
+
 </body>
 
 </html>
