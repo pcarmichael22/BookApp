@@ -37,10 +37,11 @@ function searchForBook(req, res) {
         const bookList = result.body.items;
 
         const formattedBookList = bookList.map(bookData => {
+            const regex = /(http)/g;
             return new Book(bookData.volumeInfo.title,
                 bookData.volumeInfo.authors[0],
                 bookData.volumeInfo.description,
-                bookData.volumeInfo.imageLinks.smallThumbnail,
+                bookData.volumeInfo.imageLinks.smallThumbnail.replace(regex, 'https'),
                 bookData.volumeInfo.pageCount,
                 bookData.volumeInfo.infoLink,
                 bookData.volumeInfo.averageRating);
@@ -52,12 +53,7 @@ function searchForBook(req, res) {
     })
 };
 
-// function newSearch(req, res) {
-//     return res.render('/pages/searches/show');
-// }
-
 app.listen(PORT, () => console.log(`Up and running on ${PORT}`));
-
 
 // book constructor
 
