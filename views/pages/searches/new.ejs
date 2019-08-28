@@ -1,0 +1,23 @@
+<h1>Book Search App</h1>
+<div class="container">
+    <!-- action visits a route (url), method is the route method (get, post etc) -->
+    <form action="book-search" method="POST">
+        <!-- <fieldset> -->
+        <legend>Search by Title or Author</legend>
+        <label id="titleRadio" for="search">
+       <!-- my request.body will have a property of title as of this line -->
+       <span>Title</span>
+       <input type="radio" name="search" value="title">
+     </label>
+
+        <label id="authorRadio" for="search">
+       <!-- my request.body will have a property of author as of this line -->
+       <span>Author</span>
+       <input type="radio" name="search" value="author">
+     </label>
+
+        <label for="search">
+       <input  id="inputBox" type="text" name="search" placeholder="insert book name or author">
+     </label>
+        <!-- </fieldset> -->
+    </form>
