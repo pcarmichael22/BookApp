@@ -11,6 +11,7 @@
 
 <body>
     <main>
+        <a href="/">Home</a>
         <a href="/book-search">Search For A New Book</a>
         <h1>Saved Books</h1>
         <h4>Total Books in Database:
@@ -18,33 +19,41 @@
         </h4>
 
         <% results.forEach((book) => { %>
-            <a href="books/<%= book.id %>">
-                <div class="eachBook">
+            <div class="eachBook">
+                <a href="books/<%= book.id %>">
                     <h1 class="title">
                         <%= book.title %>
                     </h1>
-                    <h2 class="author">
-                        <%=book.author%>
-                    </h2>
+                </a>
+                <h2 class="author">
+                    <%=book.author%>
+                </h2>
 
-                    <h2 class="description">
-                        <%=book.description%>
-                    </h2>
-                    <img src="<%=book.thumbnail%>" />
+                <h2 class="description">
+                    <%=book.description%>
+                </h2>
+                <img src="<%=book.thumbnail%>" />
 
-                </div>
-                <div id="Hidden Menu">
-                    <form action="book-save" method="POST">
-                        <input type="text" name="title" value="<%= book.title %>">
-                        <input type="text" name="author" value="<%= book.author %>">
-                        <input type="text" name="description" value="<%= book.description %>">
-                        <input type="text" name="thumbnail" value="<%= book.thumbnail %>">
-                        <input id="inputBox" type="button" text="saveBook">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button id="delete" type="button" text=>Delete</button>
-                    </form>
-                </div>
-            </a>
+            </div>
+            <div id="Hidden Menu">
+                <form action="/books/<%= book.id %>/delete" method="POST">
+                    <input type="hidden" name="title" value="<%= book.title %>">
+                    <input type="hidden" name="author" value="<%= book.author %>">
+                    <input type="hidden" name="description" value="<%= book.description %>">
+                    <input type="hidden" name="thumbnail" value="<%= book.thumbnail %>">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button>Delete</button>
+                </form>
+                <form action="/book/<%= book.id %>/update" method="GET">
+                    <input type="hidden" name="title" value="<%= book.title %>">
+                    <input type="hidden" name="author" value="<%= book.author %>">
+                    <input type="hidden" name="description" value="<%= book.description %>">
+                    <input type="hidden" name="thumbnail" value="<%= book.thumbnail %>">
+                    <input type="hidden" name="_method" value="PUT">
+                    <button>Update</button>
+                </form>
+            </div>
+
             <% }); %>
     </main>
 </body>

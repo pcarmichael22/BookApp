@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/modules.css">
+</head>
+
+
+
+<body>
+    <a href="/">Home</a>
+    <a href="/book-search">Search For A New Book</a>
+    <h1>Selected Book</h1>
+    <div class="singleBook">
+        <h1 class="title">
+            <%= specificBook.title %>
+        </h1>
+        <h2 class="author">
+            <%=specificBook.author%>
+        </h2>
+        <h2 class="description">
+            <%=specificBook.description%>
+        </h2>
+        <img src="<%=specificBook.thumbnail%>" />
+        <h3>
+            <%=specificBook.isbn%>
+        </h3>
+        <h3>
+            <%=specificBook.bookshelf%>
+        </h3>
+    </div>
+    <div id="Update Menu">
+        <button type="button" id="formButton">Edit the Book!</button>
+        <form id="form1" action="/book/<%= specificBook.id %>/update" method="POST">
+            <input type="text" name="title" value="<%= specificBook.title %>">
+            <input type="text" name="author" value="<%=specificBook.author%>">
+            <input type="text" name="description" value="<%=specificBook.description%>">
+            <input type="text" name="thumbnail" value="<%=specificBook.thumbnail%>">
+            <input type="text" name="category" value="<%=specificBook.bookshelf%>">
+            <input type="hidden" name="_method" value="UPDATE">
+            <button>Update Book</button>
+        </form>
+    </div>
+
+</body>
+<footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="../../../js/app.js"></script>
+</footer>
+
+</html>
