@@ -32,12 +32,13 @@
             </p>
         </div>
         <div id="Hidden Menu">
-            <form action="book-save" method="POST">
+            <form action="/book/save" method="post">
                 <input type="text" name="title" value="<%= myData[i].title %>">
                 <input type="text" name="author" value="<%= myData[i].author %>">
                 <input type="text" name="description" value="<%= myData[i].description %>">
                 <input type="text" name="thumbnail" value="<%= myData[i].thumbnail %>">
-                <input id="inputBox" type="button" name="saveBook" placeholder="Save Book to Your Library">
+                <input type="text" name="category" required> Category
+                <button>Save to Library</button>
             </form>
         </div>
         <% } %>
