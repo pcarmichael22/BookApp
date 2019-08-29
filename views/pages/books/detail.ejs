@@ -9,9 +9,35 @@
 </head>
 
 <body>
-    <h1>
-        <%= specificBook.title %>
-    </h1>
+    <a href="/">Home</a>
+    <a href="/book-search">Search For A New Book</a>
+    <h1>Selected Book</h1>
+    <div class="singleBook">
+        <h1 class="title">
+            <%= specificBook.title %>
+        </h1>
+        <h2 class="author">
+            <%=specificBook.author%>
+        </h2>
+        <h2 class="description">
+            <%=specificBook.description%>
+        </h2>
+        <img src="<%=specificBook.thumbnail%>" />
+        <h3>
+            <%=specificBook.isbn%>
+        </h3>
+        <h3>
+            <%=specificBook.bookshelf%>
+        </h3>
+    </div>
+    <form action="/book/<%= specificBook.id %>/update" method="GET">
+        <input type="hidden" name="title" value="<%= specificBook.title %>">
+        <input type="hidden" name="author" value="<%= specificBook.author %>">
+        <input type="hidden" name="description" value="<%= specificBook.description %>">
+        <input type="hidden" name="thumbnail" value="<%= specificBook.thumbnail %>">
+        <input type="hidden" name="_method" value="PUT">
+        <button>Update</button>
+    </form>
 </body>
 
 </html>
