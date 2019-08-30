@@ -1,19 +1,29 @@
-<h1>Book Search App</h1>
-<div class="container">
-    <form action="book-search" method="POST">
-        <legend>Search by Title or Author</legend>
-        <label id="titleRadio" for="search">
-      <span>Title</span>
-      <input type="radio" name="search" value="title">
-      </label>
+<%- include ../../layout/head.ejs %>
 
-        <label id="authorRadio" for="search">
-      <span>Author</span>
-      <input type="radio" name="search" value="author">
-      </label>
+<body>
+  <%- include ../../layout/nav.ejs %>
 
-        <label for="search">
-       <input  id="inputBox" type="text" name="search" placeholder="insert book name or author">
-       <button>Search</button>
-     </label>
-    </form>
+  <div id="searchH1">Book Search</div>
+  <div class="page">
+    <div class="container">
+      <form id="searchForm" action="book-search" method="POST">
+        <div class="searchHeader">Search by</div>
+        <div class="option" id="titleRadio" for="search">
+          <input type="radio" name="search" value="title" checked="checked">
+          <span>Title</span>
+        </div>
+
+        <div class="option" id="authorRadio" for="search">
+          <input type="radio" name="search" value="author">
+          <span>Author</span>
+        </div>
+
+        <div for="search">
+          <input id="inputBox" type="text" name="search" placeholder="Book or author">
+          <button id="searchButton">Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+<%- include ../../layout/footer.ejs %>

@@ -1,28 +1,28 @@
 {
-    "name": "bookapp",
-    "version": "1.0.0",
-    "description": "Lab 11 - Sarah Gilliam, Peter Carmichael, John Bavedam",
-    "main": "server.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/pcarmichael22/BookApp.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/pcarmichael22/BookApp/issues"
-    },
-    "homepage": "https://github.com/pcarmichael22/BookApp#readme",
-    "dependencies": {
-        "dotenv": "^8.1.0",
-        "ejs": "^2.6.2",
-        "env": "0.0.2",
-        "express": "^4.17.1",
-        "method-override": "^3.0.0",
-        "pg": "^7.12.1",
-        "superagent": "^5.1.0"
-    }
+  "name": "bookapp",
+  "version": "1.0.0",
+  "description": "Lab 11 - Sarah Gilliam, Peter Carmichael, John Bavedam",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pcarmichael22/BookApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pcarmichael22/BookApp/issues"
+  },
+  "homepage": "https://github.com/pcarmichael22/BookApp#readme",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "ejs": "^2.6.2",
+    "env": "0.0.2",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "pg": "^7.12.1",
+    "superagent": "^5.1.0"
+  }
 }

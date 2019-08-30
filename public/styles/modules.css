@@ -1,12 +1,110 @@
-form {
+/* Radio buttons */
+input[type=radio] {
+    border: 0px;
+    height: 1em;
+    width: 1em;
+}
+
+.option {
+    font-size: 0.7em;
+}
+
+/* This is the search page input */
+
+input[type=text] {
+    border: 0px;
+    font-size: 0.7em;
+}
+
+#inputBox {
+    width: 10em;
+    margin-top: 1em;
+}
+
+#searchButton {
+    font-size: 0.5em;
+    margin-top: 0.5em;
+}
+
+/* This is the toggle form */
+
+.form1 {
     padding: 15px;
-    border: 1px solid #666;
-    background: #fff;
+    border: 1px solid rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
     display: none;
 }
 
-#formButton {
+.formButton {
     display: block;
-    margin-right: auto;
     margin-left: auto;
+    margin-top: 0.5em;
+}
+
+/* This is the search page */
+
+#searchH1 {
+    text-align: center;
+    font-size: 2em;
+    background-color: black;
+    color: white;
+    padding-top: 1em;
+}
+
+.searchHeader {
+    font-size: 1em;
+    margin-bottom: 0.3em;
+}
+.page {
+    margin: 2.5em;
+    padding: 2em;
+    border-radius: 1em;
+    background-color: gray;
+    min-height: 14em;
+}
+
+.booktitle {
+    font-size: 2em;
+    color: white;
+    margin-bottom: 0.1em;
+}
+
+.bookdesc {
+    font-size: 1em;
+    text-align:justify;
+}
+
+.bookimage {
+    display: inline;
+    float: left;
+    margin-right: 0.4em;
+}
+
+.bookimage img {
+    max-height: 10em;
+}
+
+.bookauthor {
+    font-size: 1em;
+    color: #1f1f1f;
+    font-style: italic;
+    margin-bottom: 0.3em;
+}
+.container {
+    font-size: 2em;
+    display: block;
+}
+
+/* Saved books */
+
+.libbutton {
+    margin: .5em;
+}
+
+.editBookInputs {
+    margin: 0.2em;
+}
+
+.editBookButton {
+    margin-top: 0.2em;
 }
