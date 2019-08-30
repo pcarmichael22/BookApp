@@ -1,38 +1,32 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Book App</title>
-
-    <link rel="stylesheet" href="/styles/base.css">
-    <link rel="stylesheet" href="/styles/layout.css">
-
-</head>
+<%- include ../layout/head.ejs %>
 
 <body>
+    <%- include ../layout/nav.ejs %>
     <main>
-        <a href="/">Home</a>
-        <a href="/book-search">Search For A New Book</a>
+
         <h1>Saved Books</h1>
         <h4>Total Books in Database:
             <%= results.length %>
         </h4>
 
         <% results.forEach((book) => { %>
+        <div class="page">
             <div class="eachBook">
                 <a href="books/<%= book.id %>">
-                    <h1 class="title">
+                    <div class="title booktitle">
                         <%= book.title %>
-                    </h1>
+                    </div>
                 </a>
-                <h2 class="author">
+                <div class="author bookauthor">
                     <%=book.author%>
-                </h2>
+                </div>
+                <div class="bookimage">
+                    <img src="<%=book.thumbnail%>" />
+                </div>
 
-                <h2 class="description">
+                <div class="description bookdesc">
                     <%=book.description%>
-                </h2>
-                <img src="<%=book.thumbnail%>" />
+                </div>
 
             </div>
             <div id="Hidden Menu">
@@ -42,18 +36,20 @@
                     <input type="hidden" name="description" value="<%= book.description %>">
                     <input type="hidden" name="thumbnail" value="<%= book.thumbnail %>">
                     <input type="hidden" name="_method" value="DELETE">
-                    <button>Delete</button>
+                    <button class="libbutton">Delete</button>
                 </form>
                 <form action="/book/<%= book.id %>/update" method="GET">
                     <input type="hidden" name="title" value="<%= book.title %>">
                     <input type="hidden" name="author" value="<%= book.author %>">
                     <input type="hidden" name="description" value="<%= book.description %>">
                     <input type="hidden" name="thumbnail" value="<%= book.thumbnail %>">
-                    <input type="hidden" name="_method" value="PUT">
-                    <button>Update</button>
+                    <button class="libbutton">Update</button>
                 </form>
             </div>
 
-            <% }); %>
+
+        </div>
+        <% }); %>
     </main>
 </body>
+<%- include ../layout/footer.ejs %>

@@ -1,31 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles/modules.css">
-</head>
+<%- include ../../layout/head.ejs %>
 
 <body>
-    <a href="/">Home</a>
-    <a href="/book-search">Search for books!</a>
-
-
+    <%- include ../../layout/nav.ejs %>
     <% for(let i = 0; i < myData.length; i++){ %>
+    <div class="page">
         <div id="bookView">
-            <h1>
+            <div class="booktitle">
                 <%= myData[i].title %>
-            </h1>
-            <h2>
+            </div>
+            <div class="bookauthor">
                 <%= myData[i].author %>
-            </h2>
-            <p>
+            </div>
+            <div class="bookimage">
+                <img src="<%= myData[i].thumbnail %>" />
+            </div>
+            <div class="bookdesc">
                 <%= myData[i].description %>
-            </p>
-            <img src="<%= myData[i].thumbnail %>" />
+            </div>
+
             <p>
                 <%= myData[i].pagecount %>
             </p>
@@ -34,23 +26,25 @@
             </p>
         </div>
         <div id="Hidden Menu">
-            <button id="formButton">Add Book to Library!</button>
-            <form id="form1" action="/book/save" method="post">
+            <button id="<%= 'formButton'+i %>" class="formButton">Add Book to Library!</button>
+            <form id="<%= 'formButton'+i+'_form' %>" class="form1" action="/book/save" method="post">
                 <input type="text" name="title" value="<%= myData[i].title %>">
                 <input type="text" name="author" value="<%= myData[i].author %>">
                 <input type="text" name="description" value="<%= myData[i].description %>">
                 <input type="text" name="thumbnail" value="<%= myData[i].thumbnail %>">
-                <input type="text" name="category" required> Category
+                <input type="text" name="category" placeholder="Category" required>
                 <button>Save to Library</button>
             </form>
         </div>
-        <% } %>
+    </div>
+    <% } %>
 
-            <footer>
-                <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-                <script src="../../../js/app.js"></script>
-            </footer>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="../../../js/app.js"></script>
+
 
 </body>
 
-</html>
+<%- include ../../layout/footer.ejs %>
